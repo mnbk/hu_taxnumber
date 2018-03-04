@@ -1,0 +1,16 @@
+{
+  "name": "mnbk/validators",
+  "description": "validators",
+  "minimum-stability": "dev",
+  "version": "0.0.1",
+  "autoload": {
+    "psr-4": {
+      "Validators\\": "src/"
+    }
+  },
+  "dependencies": {
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7"
+  }
+}

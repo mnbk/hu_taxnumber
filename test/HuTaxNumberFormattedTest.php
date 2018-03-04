@@ -9,7 +9,7 @@
 use Validators\HuTaxNumber;
 use PHPUnit\Framework\TestCase;
 
-class HuTaxNumberTestFormatted extends TestCase
+class HuTaxNumberFormattedTest extends TestCase
 {
 
     public function test_Good_TaxNumber_CheckFormat_Formatted()

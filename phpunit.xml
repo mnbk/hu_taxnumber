@@ -1,0 +1,13 @@
+<phpunit bootstrap="./vendor/autoload.php">
+    <testsuites>
+        <testsuite name="testAll">
+            <file>test/HuTaxNumberTest.php</file>
+            <file>test/HuTaxNumberFormattedTest.php</file>
+            <file>test/HuTaxNumberJustDigitTest.php</file>
+            <file>test/CheckDigitGeneratorTest.php</file>
+        </testsuite>
+        <testsuite name="testCheckDigit">
+            <file>test/CheckDigitGeneratorTest.php</file>
+        </testsuite>
+    </testsuites>
+</phpunit>

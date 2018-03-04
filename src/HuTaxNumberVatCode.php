@@ -23,11 +23,19 @@ class HuTaxNumberVatCode
 
     private $code;
 
+    /**
+     * HuTaxNumberVatCode constructor.
+     * @param $vatCode
+     */
     public function __construct($vatCode)
     {
         $this->code = $vatCode;
     }
 
+    /**
+     * @return bool
+     * @throws WrongVatCodeException
+     */
     public function verify()
     {
         if(!in_array($this->code, array_keys($this->vatCodes))){
@@ -36,11 +44,17 @@ class HuTaxNumberVatCode
         return true;
     }
 
+    /**
+     * @return mixed
+     */
     public function getCode()
     {
         return $this->code;
     }
 
+    /**
+     * @return mixed
+     */
     public function getInfo()
     {
         return $this->vatCodes[$this->code];

@@ -9,7 +9,7 @@
 use Validators\HuTaxNumber;
 use PHPUnit\Framework\TestCase;
 
-class HuTaxNumberTestJustDigit extends TestCase
+class HuTaxNumberJustDigitTest extends TestCase
 {
 
     public function test_Good_TaxNumber_CheckFormat_JustDigit()

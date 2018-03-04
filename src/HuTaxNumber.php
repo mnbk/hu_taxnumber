@@ -33,6 +33,12 @@ class HuTaxNumber
         1 => ['regExp' => "/^\d{11}$/", 'message' => "Invalid Taxnumber format [valid format: 99999999999]!"],
     ];
 
+    /**
+     * HuTaxNumber constructor.
+     * @param      $taxNumber
+     * @param bool $justDigit
+     * @throws InvalidTaxNumberFormatException
+     */
     public function __construct($taxNumber, $justDigit = true)
     {
         $this->justDigit = $justDigit ? 1 : 0;
@@ -49,6 +55,10 @@ class HuTaxNumber
         $this->countyCode = new HuTaxNumberCountyCode(substr($number, 9, 2));
     }
 
+    /**
+     * @return bool
+     * @throws InvalidTaxNumberFormatException
+     */
     public function verifyFormat()
     {
 
@@ -60,6 +70,12 @@ class HuTaxNumber
 
     }
 
+    /**
+     * @return bool
+     * @throws WrongCheckDigitException
+     * @throws exceptions\InvalidCheckDigitTypeException
+     * @throws exceptions\InvalidNumberFormatException
+     */
     public function verifyCheckDigit()
     {
         $checkDigitGenerator = new CheckDigitGenerator(CheckDigitGenerator::CHECKSUMDIGIT_9731, substr($this->primeNumber,0,7));
@@ -69,25 +85,45 @@ class HuTaxNumber
         return true;
     }
 
+    /**
+     * @return bool
+     * @throws WrongCheckDigitException
+     * @throws exceptions\InvalidCheckDigitTypeException
+     * @throws exceptions\InvalidNumberFormatException
+     * @throws exceptions\WrongVatCodeException
+     */
     public function verify(){
         return $this->verifyCheckDigit() && $this->vatCode->verify() && $this->countyCode->verify();
     }
 
+    /**
+     * @return string
+     */
     public function getFormattedTaxNumber()
     {
         return $this->createTaxNumber(self::FORMAT_FORMATTED);
     }
 
+    /**
+     * @return string
+     */
     public function getTaxNumberDigits()
     {
         return $this->createTaxNumber(self::FORMAT_JUSTDIGIT);
     }
 
+    /**
+     * @return string
+     */
     public function getTaxNumber()
     {
         return $this->createTaxNumber(self::FORMAT_DEFAULT);
     }
 
+    /**
+     * @param $format
+     * @return string
+     */
     private function createTaxNumber($format)
     {
         $glueMap = ["-", ""];
@@ -106,11 +142,17 @@ class HuTaxNumber
         return implode($glueMap[$glueType], [$this->primeNumber, $this->vatCode->getCode(), $this->countyCode->getCode()]);
     }
 
+    /**
+     * @return mixed
+     */
     public function getPrimeNumber()
     {
         return $this->primeNumber;
     }
 
+    /**
+     * @return string
+     */
     public function getEuVatNumber()
     {
         return "HU" . $this->primeNumber;

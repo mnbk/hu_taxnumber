@@ -24,6 +24,13 @@ class CheckDigitGenerator
         self::CHECKSUMDIGIT_9731 => [9, 7, 3, 1]
     ];
 
+    /**
+     * CheckDigitGenerator constructor.
+     * @param $type
+     * @param $number
+     * @throws InvalidCheckDigitTypeException
+     * @throws InvalidNumberFormatException
+     */
     public function __construct($type, $number)
     {
 
@@ -40,6 +47,9 @@ class CheckDigitGenerator
 
     }
 
+    /**
+     * @return float|int
+     */
     public function getMultipliedSumForCheckDigit()
     {
         $multiplierCount = count($this->multiplierArrays[$this->type]);
@@ -53,6 +63,9 @@ class CheckDigitGenerator
         return $total;
     }
 
+    /**
+     * @return int
+     */
     public function getCheckDigit(){
 
         $checkDigit = $this->getMultipliedSumForCheckDigit();

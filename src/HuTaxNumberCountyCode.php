@@ -42,11 +42,19 @@ class HuTaxNumberCountyCode
 
     private $code;
 
+    /**
+     * HuTaxNumberCountyCode constructor.
+     * @param $code
+     */
     public function __construct($code)
     {
         $this->code = $code;
     }
 
+    /**
+     * @return bool
+     * @throws WrongCountyCodeException
+     */
     public function verify()
     {
         if(!in_array($this->code, array_keys($this->countyCodes))){
@@ -55,11 +63,17 @@ class HuTaxNumberCountyCode
         return true;
     }
 
+    /**
+     * @return mixed
+     */
     public function getCode()
     {
         return $this->code;
     }
 
+    /**
+     * @return mixed
+     */
     public function getInfo()
     {
         return $this->countyCodes[$this->code];

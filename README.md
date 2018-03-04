@@ -12,5 +12,5 @@ checks the vat code, and the county code too.
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
 ```
-$ php composer.phar require require mnbk/validators "dev-master"
+$ php composer.phar require mnbk/validators "dev-master"
 ```

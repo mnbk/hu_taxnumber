@@ -1,7 +1,7 @@
 {
   "name": "mnbk/validators",
   "description": "validators",
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "version": "0.0.1",
   "autoload": {
     "psr-4": {

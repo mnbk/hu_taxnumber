@@ -9,6 +9,6 @@
 namespace Validators;
 
 
-class WrongCheckDigit extends \Exception
+class InvalidNumberFormatException extends \Exception
 {
 }

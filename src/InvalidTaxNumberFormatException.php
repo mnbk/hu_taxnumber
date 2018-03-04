@@ -9,6 +9,6 @@
 namespace Validators;
 
 
-class InvalidNumberFormat extends \Exception
+class InvalidTaxNumberFormatException extends \Exception
 {
 }

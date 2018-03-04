@@ -9,27 +9,27 @@
 namespace Validators;
 
 
-class GenerateCheckDigit
+class CheckDigitGenerator
 {
 
-    const CHECKDIGIT_9731 = '9731';
+    const CHECKSUMDIGIT_9731 = 1;
 
     private $type;
     private $number;
 
     private $multiplierArrays = [
-        self::CHECKDIGIT_9731 => [9, 7, 3, 1]
+        self::CHECKSUMDIGIT_9731 => [9, 7, 3, 1]
     ];
 
     public function __construct($type, $number)
     {
 
         if(!preg_match("/^\d+$/", $number)){
-            throw new InvalidNumberFormat();
+            throw new InvalidNumberFormatException();
         }
 
         if(!in_array($type, array_keys($this->multiplierArrays))){
-            throw new InvalidCheckDigitType();
+            throw new InvalidCheckDigitTypeException();
         }
 
         $this->type = $type;

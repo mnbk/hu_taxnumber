@@ -14,47 +14,47 @@ class HuTaxNumberTest extends TestCase
 
     public function test_TaxNumber_CheckWrongCheckDigit()
     {
-        $this->expectException(\Validators\WrongCheckDigit::class);
+        $this->expectException(\Validators\WrongCheckDigitException::class);
         $taxNumber = new HuTaxNumber("12345678901");
-        $taxNumber->checkCheckDigit();
+        $taxNumber->verifyCheckDigit();
     }
 
     public function test_TaxNumber_CheckCheckDigit()
     {
         $taxNumber = new HuTaxNumber("12345676801");
-        $this->assertTrue($taxNumber->checkCheckDigit());
+        $this->assertTrue($taxNumber->verifyCheckDigit());
     }
 
     public function test_TaxNumber_CheckWrongVatCode()
     {
-        $this->expectException(\Validators\WrongVatCode::class);
+        $this->expectException(\Validators\WrongVatCodeException::class);
         $taxNumber = new HuTaxNumber("12345676801");
-        $this->assertTrue($taxNumber->checkVatCode());
+        $this->assertTrue($taxNumber->getVatCode()->verify());
     }
 
     public function test_TaxNumber_CheckVatCode()
     {
         $taxNumber = new HuTaxNumber("12345676101");
-        $this->assertTrue($taxNumber->checkVatCode());
+        $this->assertTrue($taxNumber->getVatCode()->verify());
     }
 
     public function test_TaxNumber_CheckWrongCountyCode()
     {
-        $this->expectException(\Validators\WrongCountyCode::class);
+        $this->expectException(\Validators\WrongCountyCodeException::class);
         $taxNumber = new HuTaxNumber("12345676801");
-        $this->assertTrue($taxNumber->checkCountyCode());
+        $this->assertTrue($taxNumber->getCountyCode()->verify());
     }
 
     public function test_TaxNumber_CheckCountyCode()
     {
         $taxNumber = new HuTaxNumber("12345676102");
-        $this->assertTrue($taxNumber->checkCountyCode());
+        $this->assertTrue($taxNumber->getCountyCode()->verify());
     }
 
     public function test_TaxNumber_CheckCheckTaxNUmber()
     {
         $taxNumber = new HuTaxNumber("12345676102");
-        $this->assertTrue($taxNumber->checkTaxNumber());
+        $this->assertTrue($taxNumber->verifyTaxNumber());
     }
 
     public function test_TaxNumber_getTaxNumber()
@@ -87,25 +87,25 @@ class HuTaxNumberTest extends TestCase
     public function test_TaxNumber_getVatCode()
     {
         $taxNumber = new HuTaxNumber("12345676-1-02", false);
-        $this->assertEquals("1", $taxNumber->getVatCode());
+        $this->assertEquals("1", $taxNumber->getVatCode()->getCode());
     }
 
     public function test_TaxNumber_getVatCodeInfo()
     {
         $taxNumber = new HuTaxNumber("12345676-1-02", false);
-        $this->assertNotEmpty($taxNumber->getVatCodeInfo());
+        $this->assertNotEmpty($taxNumber->getVatCode()->getInfo());
     }
 
     public function test_TaxNumber_getCountyCode()
     {
         $taxNumber = new HuTaxNumber("12345676-1-02", false);
-        $this->assertEquals("02", $taxNumber->getCountyCode());
+        $this->assertEquals("02", $taxNumber->getCountyCode()->getCode());
     }
 
     public function test_TaxNumber_getCountyCodeInfo()
     {
         $taxNumber = new HuTaxNumber("12345676-1-02", false);
-        $this->assertNotEmpty($taxNumber->getCountyCodeInfo());
+        $this->assertNotEmpty($taxNumber->getCountyCode()->getInfo());
     }
 
     public function test_TaxNumber_getPrimeNumber()

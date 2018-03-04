@@ -9,6 +9,6 @@
 namespace Validators;
 
 
-class WrongCountyCode extends \Exception
+class WrongVatCodeException extends \Exception
 {
 }

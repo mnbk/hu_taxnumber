@@ -9,6 +9,6 @@
 namespace Validators;
 
 
-class WrongVatCode extends \Exception
+class WrongCheckDigitException extends \Exception
 {
 }

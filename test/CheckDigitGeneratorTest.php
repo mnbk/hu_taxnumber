@@ -14,13 +14,13 @@ class CheckDigitGeneratorTest extends TestCase
 
     public function test_InvalidNumberFormat()
     {
-        $this->expectException(\Validators\InvalidNumberFormatException::class);
+        $this->expectException(\Validators\exceptions\InvalidNumberFormatException::class);
         $checkDigitGenerator = new CheckDigitGenerator(CheckDigitGenerator::CHECKSUMDIGIT_9731, "asd987");
     }
 
     public function test_InvalidCheckDigitType()
     {
-        $this->expectException(\Validators\InvalidCheckDigitTypeException::class);
+        $this->expectException(\Validators\exceptions\InvalidCheckDigitTypeException::class);
         $checkDigitGenerator = new CheckDigitGenerator(999876, "123456");
     }
 

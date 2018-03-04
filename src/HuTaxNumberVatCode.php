@@ -9,6 +9,8 @@
 namespace Validators;
 
 
+use Validators\exceptions\WrongVatCodeException;
+
 class HuTaxNumberVatCode
 {
     private $vatCodes = [

@@ -8,6 +8,9 @@
 
 namespace Validators;
 
+use Validators\exceptions\InvalidTaxNumberFormatException;
+use Validators\exceptions\WrongCheckDigitException;
+
 class HuTaxNumber
 {
 

@@ -9,6 +9,9 @@
 namespace Validators;
 
 
+use Validators\exceptions\InvalidCheckDigitTypeException;
+use Validators\exceptions\InvalidNumberFormatException;
+
 class CheckDigitGenerator
 {
 

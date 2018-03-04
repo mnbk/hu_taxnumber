@@ -9,6 +9,8 @@
 namespace Validators;
 
 
+use Validators\exceptions\WrongCountyCodeException;
+
 class HuTaxNumberCountyCode
 {
     private $countyCodes = [

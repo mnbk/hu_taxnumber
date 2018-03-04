@@ -6,9 +6,9 @@
  * Time: 6:50
  */
 
-namespace Validators;
+namespace Validators\exceptions;
 
 
-class WrongVatCodeException extends \Exception
+class WrongCheckDigitException extends \Exception
 {
 }

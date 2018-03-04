@@ -14,7 +14,7 @@ class HuTaxNumberTest extends TestCase
 
     public function test_TaxNumber_CheckWrongCheckDigit()
     {
-        $this->expectException(\Validators\WrongCheckDigitException::class);
+        $this->expectException(\Validators\exceptions\WrongCheckDigitException::class);
         $taxNumber = new HuTaxNumber("12345678901");
         $taxNumber->verifyCheckDigit();
     }
@@ -27,7 +27,7 @@ class HuTaxNumberTest extends TestCase
 
     public function test_TaxNumber_CheckWrongVatCode()
     {
-        $this->expectException(\Validators\WrongVatCodeException::class);
+        $this->expectException(\Validators\exceptions\WrongVatCodeException::class);
         $taxNumber = new HuTaxNumber("12345676801");
         $this->assertTrue($taxNumber->getVatCode()->verify());
     }
@@ -40,7 +40,7 @@ class HuTaxNumberTest extends TestCase
 
     public function test_TaxNumber_CheckWrongCountyCode()
     {
-        $this->expectException(\Validators\WrongCountyCodeException::class);
+        $this->expectException(\Validators\exceptions\WrongCountyCodeException::class);
         $taxNumber = new HuTaxNumber("12345676801");
         $this->assertTrue($taxNumber->getCountyCode()->verify());
     }

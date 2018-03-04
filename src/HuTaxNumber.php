@@ -66,7 +66,7 @@ class HuTaxNumber
         return true;
     }
 
-    public function verifyTaxNumber(){
+    public function verify(){
         return $this->verifyCheckDigit() && $this->vatCode->verify() && $this->countyCode->verify();
     }
 

@@ -54,7 +54,7 @@ class HuTaxNumberTest extends TestCase
     public function test_TaxNumber_CheckCheckTaxNUmber()
     {
         $taxNumber = new HuTaxNumber("12345676102");
-        $this->assertTrue($taxNumber->verifyTaxNumber());
+        $this->assertTrue($taxNumber->verify());
     }
 
     public function test_TaxNumber_getTaxNumber()

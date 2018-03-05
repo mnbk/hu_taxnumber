@@ -1,15 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nmajsa
- * Date: 2018.03.02.
- * Time: 15:44
- */
 
-namespace Validators;
+namespace HuTaxnumberValidators;
 
-use Validators\exceptions\InvalidTaxNumberFormatException;
-use Validators\exceptions\WrongCheckDigitException;
+use HuTaxnumberValidators\Exception\InvalidTaxNumberFormatException;
+use HuTaxnumberValidators\Exception\WrongCheckDigitException;
 
 class HuTaxNumber
 {
@@ -73,8 +67,8 @@ class HuTaxNumber
     /**
      * @return bool
      * @throws WrongCheckDigitException
-     * @throws exceptions\InvalidCheckDigitTypeException
-     * @throws exceptions\InvalidNumberFormatException
+     * @throws Exception\InvalidCheckDigitTypeException
+     * @throws Exception\InvalidNumberFormatException
      */
     public function verifyCheckDigit()
     {
@@ -88,9 +82,9 @@ class HuTaxNumber
     /**
      * @return bool
      * @throws WrongCheckDigitException
-     * @throws exceptions\InvalidCheckDigitTypeException
-     * @throws exceptions\InvalidNumberFormatException
-     * @throws exceptions\WrongVatCodeException
+     * @throws Exception\InvalidCheckDigitTypeException
+     * @throws Exception\InvalidNumberFormatException
+     * @throws Exception\WrongVatCodeException
      */
     public function verify(){
         return $this->verifyCheckDigit() && $this->vatCode->verify() && $this->countyCode->verify();

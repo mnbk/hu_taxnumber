@@ -5,7 +5,7 @@
   "version": "0.1.1",
   "autoload": {
     "psr-4": {
-      "Validators\\": "src/"
+      "HuTaxnumberValidators\\": "src/"
     }
   },
   "dependencies": {

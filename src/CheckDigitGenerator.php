@@ -1,16 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nmajsa
- * Date: 2018.03.04.
- * Time: 7:29
- */
 
-namespace Validators;
+namespace HuTaxnumberValidators;
 
 
-use Validators\exceptions\InvalidCheckDigitTypeException;
-use Validators\exceptions\InvalidNumberFormatException;
+use HuTaxnumberValidators\Exception\InvalidCheckDigitTypeException;
+use HuTaxnumberValidators\Exception\InvalidNumberFormatException;
 
 class CheckDigitGenerator
 {

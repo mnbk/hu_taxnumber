@@ -1,15 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nmajsa
- * Date: 2018.03.04.
- * Time: 17:54
- */
 
-namespace Validators;
+namespace HuTaxnumberValidators;
 
 
-use Validators\exceptions\WrongVatCodeException;
+use HuTaxnumberValidators\Exception\WrongVatCodeException;
 
 class HuTaxNumberVatCode
 {

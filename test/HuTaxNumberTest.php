@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nmajsa
- * Date: 2018.03.03.
- * Time: 6:33
- */
 
-use Validators\HuTaxNumber;
+use HuTaxnumberValidators\HuTaxNumber;
 use PHPUnit\Framework\TestCase;
 
 class HuTaxNumberTest extends TestCase
@@ -14,7 +8,7 @@ class HuTaxNumberTest extends TestCase
 
     public function test_TaxNumber_CheckWrongCheckDigit()
     {
-        $this->expectException(\Validators\exceptions\WrongCheckDigitException::class);
+        $this->expectException(\HuTaxnumberValidators\Exception\WrongCheckDigitException::class);
         $taxNumber = new HuTaxNumber("12345678901");
         $taxNumber->verifyCheckDigit();
     }
@@ -27,7 +21,7 @@ class HuTaxNumberTest extends TestCase
 
     public function test_TaxNumber_CheckWrongVatCode()
     {
-        $this->expectException(\Validators\exceptions\WrongVatCodeException::class);
+        $this->expectException(\HuTaxnumberValidators\Exception\WrongVatCodeException::class);
         $taxNumber = new HuTaxNumber("12345676801");
         $this->assertTrue($taxNumber->getVatCode()->verify());
     }
@@ -40,7 +34,7 @@ class HuTaxNumberTest extends TestCase
 
     public function test_TaxNumber_CheckWrongCountyCode()
     {
-        $this->expectException(\Validators\exceptions\WrongCountyCodeException::class);
+        $this->expectException(\HuTaxnumberValidators\Exception\WrongCountyCodeException::class);
         $taxNumber = new HuTaxNumber("12345676801");
         $this->assertTrue($taxNumber->getCountyCode()->verify());
     }
